@@ -15,5 +15,4 @@ public class BluetoothTileService extends TileService {
             e.printStackTrace();
         }
     }
-
 }

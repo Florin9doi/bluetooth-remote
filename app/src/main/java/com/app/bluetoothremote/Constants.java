@@ -18,10 +18,6 @@ public class Constants {
     public static final ParcelUuid HOGP_UUID = ParcelUuid.fromString("00001812-0000-1000-8000-00805f9b34fb");
     public static final ParcelUuid HID_UUID = ParcelUuid.fromString("00001124-0000-1000-8000-00805f9b34fb");
 
-    public static final ParcelUuid DIS_UUID = ParcelUuid.fromString("0000180A-0000-1000-8000-00805F9B34FB");
-
-    public static final ParcelUuid BAS_UUID = ParcelUuid.fromString("0000180F-0000-1000-8000-00805F9B34FB");
-
     public static final byte ID_KEYBOARD = 1;
     public static final byte ID_REMOTE_CONTROL = 2;
     public static final byte ID_MOUSE = 3;
@@ -116,14 +112,8 @@ public class Constants {
                     Constants.SDP_NAME,
                     Constants.SDP_DESCRIPTION,
                     Constants.SDP_PROVIDER,
-//                    BluetoothHidDevice.SUBCLASS1_MOUSE,
-//                    BluetoothHidDevice.SUBCLASS1_KEYBOARD,
-//                    BluetoothHidDevice.SUBCLASS1_COMBO,
-//                    BluetoothHidDevice.SUBCLASS2_REMOTE_CONTROL,
                     BluetoothHidDevice.SUBCLASS2_UNCATEGORIZED,
-//                    BluetoothHidDevice.SUBCLASS1_NONE,
                     Constants.HID_REPORT_DESC);
-//                    Constants.HID_REPORT_DESC_TEST);
 
     public static final BluetoothHidDeviceAppQosSettings QOS_OUT =
             new BluetoothHidDeviceAppQosSettings(

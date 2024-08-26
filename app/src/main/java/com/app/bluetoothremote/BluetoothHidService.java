@@ -16,7 +16,6 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.Message;
-import android.os.Messenger;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -290,18 +289,14 @@ public class BluetoothHidService extends Service implements BluetoothProfile.Ser
                 }
             };
 
-//            bluetoothHidDevice.registerApp(Constants.SDP_RECORD, null, Constants.QOS_OUT, Runnable::run, callback);
             bluetoothHidDevice.registerApp(Constants.SDP_RECORD, null, null, Runnable::run, callback);
-
         }
     }
 
     @Override
     public void onServiceDisconnected(int profile) {
         if (profile == BluetoothProfile.HID_DEVICE) {
-//            bluetoothHidDevice = null;
             debug("HID onServiceDisconnected");
         }
     }
-
 }

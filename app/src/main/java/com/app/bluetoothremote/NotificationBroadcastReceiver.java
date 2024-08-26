@@ -6,7 +6,6 @@ import android.content.Intent;
 
 public class NotificationBroadcastReceiver extends BroadcastReceiver {
 
-
     @Override
     public void onReceive(Context context, Intent intent) {
         System.out.println(intent.getAction());

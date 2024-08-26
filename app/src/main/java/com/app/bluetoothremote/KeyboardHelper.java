@@ -2,7 +2,6 @@ package com.app.bluetoothremote;
 
 import android.annotation.SuppressLint;
 
-
 import androidx.annotation.IntDef;
 
 import java.lang.annotation.Retention;
@@ -209,5 +208,4 @@ public class KeyboardHelper {
     static Integer getShiftKey(Character c) {
         return shiftKeyMap.getOrDefault(c,0);
     }
-
 }
