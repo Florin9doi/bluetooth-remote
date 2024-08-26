@@ -419,10 +419,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     String deviceName = device.getName();
                     String deviceHardwareAddress = device.getAddress(); // MAC address
                     debug(deviceName + ", " + deviceHardwareAddress);
-
-                    if (deviceName.equals("DESKTOP-4NAPAOI")) {
-                        device.createBond();
-                    }
                 }
                 if (BluetoothDevice.ACTION_BOND_STATE_CHANGED.equals(action)) {
                     BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
