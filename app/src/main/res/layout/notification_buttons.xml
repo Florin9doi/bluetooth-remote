@@ -115,6 +115,4 @@
             android:text="@string/btn_vol_down"/>
 
     </LinearLayout>
-
-
 </LinearLayout>
