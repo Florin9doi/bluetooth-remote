@@ -16,6 +16,7 @@ import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.Message;
+import android.os.ParcelUuid;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -277,7 +278,7 @@ public class BluetoothHidService extends Service implements BluetoothProfile.Ser
                             stateStr = "STATE_DISCONNECTING";
                             break;
                     }
-                    boolean isProfileSupported = HidUtils.isProfileSupported(device);
+                    boolean isProfileSupported = isProfileSupported(device);
                     debug("isProfileSupported " + isProfileSupported);
                     debug("HID " + device.getName() + " " + device.getAddress() + " " + stateStr);
                 }
@@ -298,5 +299,19 @@ public class BluetoothHidService extends Service implements BluetoothProfile.Ser
         if (profile == BluetoothProfile.HID_DEVICE) {
             debug("HID onServiceDisconnected");
         }
+    }
+
+    @SuppressLint("MissingPermission")
+    public static boolean isProfileSupported(BluetoothDevice device) {
+        // If a device reports itself as a HID Device, then it isn't a HID Host.
+        ParcelUuid[] uuidArray = device.getUuids();
+        if (uuidArray != null) {
+            for (ParcelUuid uuid : uuidArray) {
+                if (Constants.HID_UUID.equals(uuid) || Constants.HOGP_UUID.equals(uuid)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
